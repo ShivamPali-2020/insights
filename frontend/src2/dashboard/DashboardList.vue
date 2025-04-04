@@ -129,7 +129,7 @@ watchEffect(() => {
 
 			<!-- Empty State -->
 			<div v-else class="flex h-full w-full flex-col items-center justify-center text-base">
-				<div class="text-xl font-medium">No Dashboards</div>
+				<div class="text-xl font-medium">No Dashboards Customisation</div>
 				<div class="mt-1 text-base text-gray-600">
 					Create a dashboard in your workbook to view it here.
 				</div>
