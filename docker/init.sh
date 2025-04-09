@@ -22,7 +22,7 @@ bench set-redis-socketio-host redis:6379
 sed -i '/redis/d' ./Procfile
 sed -i '/watch/d' ./Procfile
 
-bench get-app https://github.com/ShivamPali-2020/insights.git --branch dev-shivam-customisation
+bench get-app https://github.com/ShivamPali-2020/insights.git --branch dev-nakul-customization
 
 bench new-site insights.localhost \
 --force \
