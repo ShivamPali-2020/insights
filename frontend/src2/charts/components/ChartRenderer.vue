@@ -88,7 +88,7 @@ function onChartElementClick(params: any) {
 		/>
 
 		<HistogramChart
-			v-else-if="!loading && chart_type == 'Histogram'"
+			v-else-if="!loading && chart_type == 'Histogram' && config"
 			:config="(config as HistogramChartConfig)"
 			:result="result"
 		/>

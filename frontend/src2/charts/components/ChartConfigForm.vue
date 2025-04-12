@@ -37,6 +37,7 @@ const dimensions = computed<DimensionOption[]>(() => {
 })
 
 const columnOptions = computed(() => chartQuery.value.result?.columnOptions || [])
+console.log('config', props.chart.doc.config)
 </script>
 
 <template>
@@ -71,8 +72,8 @@ const columnOptions = computed(() => chartQuery.value.result?.columnOptions || [
 		:column-options="columnOptions"
 	/>
 	<HistogramChartConfigForm
-		v-if="props.chart.doc.chart_type === 'Histogram'"
-		v-model="(props.chart.doc.config as HistogramChartConfig)"
+		v-if="chart.doc.chart_type === 'Histogram' && chart.doc.config"
+    	v-model="(chart.doc.config as HistogramChartConfig)"
 		:column-options="columnOptions"
 		:dimensions="dimensions"
 	/>

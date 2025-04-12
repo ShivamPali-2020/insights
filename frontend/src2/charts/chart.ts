@@ -10,6 +10,7 @@ import {
 	AxisChartConfig,
 	CHARTS,
 	DonutChartConfig,
+	HistogramChartConfig,
 	NumberChartConfig,
 	TableChartConfig,
 } from '../types/chart.types'
@@ -122,6 +123,15 @@ function makeChart(name: string) {
 				messages.push({
 					variant: 'error',
 					message: 'Number column is required',
+				})
+			}
+		}
+		if (chart.doc.chart_type === 'Histogram') {
+			const config = chart.doc.config as HistogramChartConfig
+			if (!config.classInterval || !config.value_column) {
+				messages.push({
+					variant: 'error',
+					message: 'Histogram Error',
 				})
 			}
 		}
@@ -414,11 +424,14 @@ function getChartResource(name: string) {
 		disableLocalStorage: true,
 		transform: transformChartDoc,
 	})
-	wheneverChanges(() => chart.doc.read_only, () => {
-		if (chart.doc.read_only) {
-			chart.autoSave = false
+	wheneverChanges(
+		() => chart.doc.read_only,
+		() => {
+			if (chart.doc.read_only) {
+				chart.autoSave = false
+			}
 		}
-	})
+	)
 	return chart
 }
 
