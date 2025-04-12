@@ -70,6 +70,7 @@ function onChartElementClick(params: any) {
 		showDrillDown.value = true
 	}
 }
+console.log('props', props, chart_type.value, config.value, result.value)
 </script>
 
 <template>
