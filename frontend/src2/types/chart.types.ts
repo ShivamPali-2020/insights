@@ -3,7 +3,7 @@ import { Dimension, Measure } from './query.types'
 export const AXIS_CHARTS = ['Bar', 'Line', 'Row']
 export type AxisChartType = (typeof AXIS_CHARTS)[number]
 
-export const CHARTS = ['Number', ...AXIS_CHARTS, 'Donut', 'Funnel', 'Table']
+export const CHARTS = ['Number', ...AXIS_CHARTS, 'Donut', 'Funnel', 'Table', 'Histogram']
 export type ChartType = (typeof CHARTS)[number]
 
 export type AxisChartConfig = {
@@ -96,6 +96,10 @@ export type FunnelChartConfig = {
 	value_column: Measure
 	label_position?: 'left' | 'right' | 'alternate'
 }
+export type HistogramChartConfig = {
+	value_column: Measure
+	classInterval: number
+}
 
 export type TableChartConfig = {
 	rows: Dimension[]
@@ -115,3 +119,4 @@ export type ChartConfig =
 	| DonutChartConfig
 	| TableChartConfig
 	| FunnelChartConfig
+	| HistogramChartConfig

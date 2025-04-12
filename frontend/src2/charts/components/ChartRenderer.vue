@@ -6,6 +6,7 @@ import {
 	BarChartConfig,
 	DonutChartConfig,
 	FunnelChartConfig,
+	HistogramChartConfig,
 	LineChartConfig,
 	NumberChartConfig,
 } from '../../types/chart.types'
@@ -20,6 +21,7 @@ import BaseChart from './BaseChart.vue'
 import DrillDown from './DrillDown.vue'
 import NumberChart from './NumberChart.vue'
 import TableChart from './TableChart.vue'
+import HistogramChart from './HistogramChart.vue'
 
 const props = defineProps<{ chart: Chart }>()
 
@@ -82,6 +84,12 @@ function onChartElementClick(params: any) {
 		<NumberChart
 			v-else-if="!loading && chart_type == 'Number'"
 			:config="(config as NumberChartConfig)"
+			:result="result"
+		/>
+
+		<HistogramChart
+			v-else-if="!loading && chart_type == 'Histogram'"
+			:config="(config as HistogramChartConfig)"
 			:result="result"
 		/>
 		<TableChart v-else-if="!loading && chart_type == 'Table'" :chart="props.chart" />

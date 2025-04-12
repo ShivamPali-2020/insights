@@ -5,6 +5,7 @@ import {
 	BarChartConfig,
 	DonutChartConfig,
 	FunnelChartConfig,
+	HistogramChartConfig,
 	LineChartConfig,
 	NumberChartConfig,
 	TableChartConfig,
@@ -17,6 +18,7 @@ import FunnelChartConfigForm from './FunnelChartConfigForm.vue'
 import LineChartConfigForm from './LineChartConfigForm.vue'
 import NumberChartConfigForm from './NumberChartConfigForm.vue'
 import TableChartConfigForm from './TableChartConfigForm.vue'
+import HistogramChartConfigForm from './HistogramChartConfigForm.vue'
 
 const props = defineProps<{ chart: Chart }>()
 
@@ -67,6 +69,12 @@ const columnOptions = computed(() => chartQuery.value.result?.columnOptions || [
 		v-model="(props.chart.doc.config as BarChartConfig)"
 		:dimensions="dimensions"
 		:column-options="columnOptions"
+	/>
+	<HistogramChartConfigForm
+		v-if="props.chart.doc.chart_type === 'Histogram'"
+		v-model="(props.chart.doc.config as HistogramChartConfig)"
+		:column-options="columnOptions"
+		:dimensions="dimensions"
 	/>
 	<LineChartConfigForm
 		v-if="props.chart.doc.chart_type == 'Line'"
