@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, watch, ref } from 'vue'
-import Plotly from 'plotly.js'
+// import Plotly from 'plotly.js'
 import { PlotData } from 'plotly.js'
 import type { HistogramChartConfig } from '../../types/chart.types'
 import type { QueryResult } from '../../types/query.types'
@@ -55,7 +55,8 @@ const renderChart = () => {
 		},
 	}
 
-	Plotly.react(plotRef.value, [trace], layout, { responsive: true })
+	// Plotly.react(plotRef.value, [trace], layout, { responsive: true })
+	console.log('Histogram', [trace], layout, { responsive: true })
 }
 
 onMounted(renderChart)
@@ -63,7 +64,7 @@ watch(() => [props.config, props.result], renderChart, { deep: true })
 </script>
 
 <template>
-	<div ref="plotRef" class="h-full w-full"></div>
+	<div ref="plotRef" class="h-full w-full sachin-shivam-histogram"></div>
 </template>
 
 <style scoped>
